@@ -1,0 +1,14 @@
+version: 2
+ 
+seeds:
+  - name: lkp_divisions
+    config:
+      schema: lookup
+
+  - name: lkp_categories
+    config:
+      schema: lookup
+
+  - name: lkp_shippers
+    config:
+      schema: lookup

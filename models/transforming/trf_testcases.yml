@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  
+  - name: trf_shipments
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['returned', 'shipped', 'replaced', 'ordered']

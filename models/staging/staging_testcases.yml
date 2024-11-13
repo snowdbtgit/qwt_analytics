@@ -1,0 +1,32 @@
+version: 2
+ 
+models:
+ 
+  - name: stg_customers
+    config:
+      schema: "{{env_var('DBT_STAGESCHEMA', 'STAGING') }}"
+    columns:
+      - name: customerid
+        description: unique id to reporesent each customer in the table
+        tests:
+          - unique
+          - not_null
+          - is_even
+ 
+  - name: stg_orders
+    config:
+      schema: "{{env_var('DBT_STAGESCHEMA', 'STAGING') }}"
+    columns:
+      - name: orderid
+        description: uniquly identifying each order
+        tests:
+          - unique
+          - not_null
+ 
+      - name: customerid
+        description: represents each customer who made some transactions
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customerid
