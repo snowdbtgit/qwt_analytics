@@ -3,6 +3,7 @@ version: 2
 models:
  
   - name: stg_customers
+    description: "{{ doc('customers') }}"
     config:
       schema: "{{env_var('DBT_STAGESCHEMA', 'STAGING') }}"
     columns:
@@ -14,6 +15,7 @@ models:
           - is_even
  
   - name: stg_orders
+    description: "{{ doc('orders') }}"
     config:
       schema: "{{env_var('DBT_STAGESCHEMA', 'STAGING') }}"
     columns:
